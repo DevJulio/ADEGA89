@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Adega 89</title>
+    <link rel="icon" href="../../img/newlogo.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Signin Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./Signin Template for Bootstrap_files/signin.css" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+    <style>
+        body {
+            background-color: white;
+            background-size: contain;
+            background: url("../../images/banner-images/combine.jpg");
+            background-size: contain;
+            /* -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;*/
+        }
+    </style>
+
+
+
+    <div style="background-color: red;" class="container  text-center align-center">
+
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);     background-color: currentColor; border-radius: 30px;;">
+            <img class="mb-4" src="../../images/logo.png" alt="" width="234px" height="125">
+            <div class="form-group  d-flex justify-content-center col-lg-12 ">
+                <input style="color: #55212d; 
+    border-block-color: #d2b356;" type="text" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <div class="d-flex align-items-center form-group  col-lg-12">
+                <input style="color: #55212d; 
+    border-block-color: #d2b356;" type="password" class="form-control" id="Senha" placeholder="Senha">
+            </div>
+
+            <div class="checkbox mb-3">
+                </br>
+                <a href="../Cadastro/CadastroPessoa/Cadastro.html">Novo? Clique para criar
+                    cadastro!</a>
+                </br>
+                <a href="../Cadastro/CadastroPessoa/Cadastro.html">Esqueci a senha</a>
+            </div>
+            <button class="btn btn-lg" style="background-color: #49252f;  color: #cbbc78;" type="submit"
+                onclick="Logar()">Acessar</button>
+            </br>
+            </br>
+        </div>
+    </div>
+
+    <div style="position: absolute; right: 0; bottom:0;">
+        <a style="background: white;" href="../Login/LoginAdm/Login.html">Login Adm</a>
+
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="Login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+.geeks {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.geeks img {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+
+.geeks:hover img {
+    transform: scale(1.5);
+}
+
+.titleAux {
+    color: #55212d;
+}
+
+.titleIndent {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.details {
+    width: 100%;
+    background-color: #ccc;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 470px;
+}
+
+.topDetails {
+    width: 100%;
+    background-color: #ccc;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 514px;
+
+
+}
+
+.moreDetails {
+    font-family: "Open Sans", sans-serif, Arial, Helvetica;
+    font-size: 15px;
+    font-weight: normal;
+    color: #111;
+}
+
+.buttomCart {
+    margin-top: -35px;
+    width: 100%;
+}
+
+.buttomAdd {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 25%;
+    color: #55212d;
+}
+
+.spanLbl {
+    font-size: 40px;
+    color: #55212d;
+    width: 22%;
+    background-color: #ccc;
+    border-color: #ccc;
+    margin-left: -4px;
+
+}
+
+.spanValue {
+    font-family: "Open Sans", sans-serif, Arial, Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    color: #111;
+    background-color: #ccc;
+    border-color: #ccc;
+    width: 40%;
+    margin-top: 11px;
+    margin-left: -11px;
+}
+
+.imgProps {
+    border-radius: 5%;
+}

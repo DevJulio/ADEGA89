@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: row;
+}
+
+.formItem {
+  display: flex;
+  margin-right: 3em;
+  width: 40em;
+  flex-direction: column;
+}
+.formItemBigger {
+  display: flex;
+  margin-right: 3em;
+  width: 42em;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.lbl {
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+  .formItem {
+    width: 100%;
+  }
+  .formItemBigger {
+    width: 100%;
+  }
+}
+.opt {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif, Arial, Helvetica;
+  font-weight: normal;
+  color: #111;
+}
