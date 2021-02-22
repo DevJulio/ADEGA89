@@ -14,19 +14,20 @@
 
     <!--Favicon-->
     <link rel="shortcut icon" href="images/smallicon.jpg" title="Favicon" />
+    <link rel="stylesheet" href="../../../../css/add.css" />
 
     <!-- Main CSS Files -->
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
     <!-- Main CSS Files -->
-    <link rel="stylesheet" href="../../../css/menu.css">
+    <link rel="stylesheet" href="../../../../css/menu.css">
     <!-- Namari Color CSS -->
-    <link rel="stylesheet" href="../../../css/namari-color.css">
+    <link rel="stylesheet" href="../../../../css/namari-color.css">
 
     <!--Icon Fonts - Font Awesome Icons-->
-    <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
 
     <!-- Animate CSS-->
-    <link href="../../../css/animate.css" rel="stylesheet" type="text/css">
+    <link href="../../../../css/animate.css" rel="stylesheet" type="text/css">
 
     <!--Google Webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -62,12 +63,12 @@
                         <div id="logo">
 
                             <!--Logo that is shown on the banner-->
-                            <img class="imgProps" src="../../../images/company-images/AdegaNoBg.png" id="banner-logo"
+                            <img class="imgProps" src="../../../../images/company-images/AdegaNoBg.png" id="banner-logo"
                                 alt="Landing Page" />
                             <!--End of Banner Logo-->
 
                             <!--The Logo that is shown on the sticky Navigation Bar-->
-                            <img class="imgProps" src="../../../images/company-images/AdegaNoBg.png"
+                            <img class="imgProps" src="../../../../images/company-images/AdegaNoBg.png"
                                 id="navigation-logo" alt="Landing Page" />
                             <!--End of Navigation Logo-->
 
@@ -145,32 +146,25 @@
 
                     <div class="section-heading">
                         <h3>Painel de vendas</h3>
-                        <h2 class="section-title titleAux">Ações do Painel</h2>
+                        <h2 class="section-title titleAux">Vendas abertas</h2>
                     </div>
 
-                    <div class="col-2 wow fadeInUp" data-wow-delay="0.6s">
-                        <a href="./cadastro/cadastro.html">
-                            <div class="icon">
-                                <img src="../../../images/icons/icons8-open-box-100.png" alt="">
-                            </div>
-                            <h3 class="titleAux">Vendas abertas</h3>
-
-                        </a>
+                    <div class="icon">
+                        <img class="imgProps" src="../../../../images/icons/icons8-shopping-cart-60.png" alt="">
                     </div>
 
-                    <div class="col-2 wow fadeInUp" data-wow-delay="0.6s">
-                        <a href="./edicao/edicao.html">
-                            <div style="margin-top: 10px;" class="icon">
-                                <img src="../../../images/icons/icons8-cardboard-box-100.png" alt="">
-                            </div>
-                            <h3 class="titleAux">Vendas finalizadas</h3>
-                        </a>
+                    <div class="itemDetail">
+                        <span class="itemDetailLbl">Produto(s):</span>
+                        <span class="itemDetailLblSecondary">${doc.data().name}</span>
+                        <span class="itemDetailLbl">Preço unitário:</span>
+                        <span class="itemDetailLblSecondary">${doc.data().price}</span>
+                        <span class="itemDetailLbl">Quantidade:</span>
+                        <span class="itemDetailLblSecondary">X${doc.data().count}</span>
+                        <div id="btn" style="text-align-last: center;">
+                            <a href="#" onClick="removeDrink('${doc.id}')" class="button">Remover
+                                item(ns)</a>
+                        </div>
                     </div>
-
-                    <!--Pricing Block-->
-
-                    <!--End Pricing Block-->
-
 
 
                 </div>
@@ -217,18 +211,18 @@
     </div>
 
     <!-- Include JavaScript resources -->
-    <script src="../../../js/jquery.1.8.3.min.js"></script>
-    <script src="../../../js/wow.min.js"></script>
-    <script src="../../../js/featherlight.min.js"></script>
-    <script src="../../../js/featherlight.gallery.min.js"></script>
-    <script src="../../../js/jquery.enllax.min.js"></script>
-    <script src="../../../js/jquery.scrollUp.min.js"></script>
-    <script src="../../../js/jquery.easing.min.js"></script>
-    <script src="../../../js/jquery.stickyNavbar.min.js"></script>
-    <script src="../../../js/jquery.waypoints.min.js"></script>
-    <script src="../../../js/images-loaded.min.js"></script>
-    <script src="../../../js/lightbox.min.js"></script>
-    <script src="../../../js/site.js"></script>
+    <script src="../../../../js/jquery.1.8.3.min.js"></script>
+    <script src="../../../../js/wow.min.js"></script>
+    <script src="../../../../js/featherlight.min.js"></script>
+    <script src="../../../../js/featherlight.gallery.min.js"></script>
+    <script src="../../../../js/jquery.enllax.min.js"></script>
+    <script src="../../../../js/jquery.scrollUp.min.js"></script>
+    <script src="../../../../js/jquery.easing.min.js"></script>
+    <script src="../../../../js/jquery.stickyNavbar.min.js"></script>
+    <script src="../../../../js/jquery.waypoints.min.js"></script>
+    <script src="../../../../js/images-loaded.min.js"></script>
+    <script src="../../../../js/lightbox.min.js"></script>
+    <script src="../../../../js/site.js"></script>
     <script src="./cadastro.js"></script>
 
 </body>

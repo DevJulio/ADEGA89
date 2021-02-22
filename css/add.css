@@ -24,6 +24,47 @@
   text-align: left;
 }
 
+.itemDetail {
+  border-width: 5px;
+  border-color: #55212d;
+  width: 100%;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  text-align-last: left;
+  margin-top: 1em;
+}
+.itemDetailLbl {
+  padding-left: 10px;
+  font-family: "Open Sans", sans-serif, Arial, Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+}
+.itemDetailLblSecondary {
+  padding-left: 10px;
+  font-family: "Open Sans", sans-serif, Arial, Helvetica;
+  font-size: 25px;
+  font-weight: 100;
+}
+.addressItem {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.addressItemLbl {
+  font-family: "Open Sans", sans-serif, Arial, Helvetica;
+  font-weight: 300;
+  color: #111;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.addressText {
+  width: 100%;
+  margin-left: 25px;
+  height: 10em;
+  font-family: "Open Sans", sans-serif, Arial, Helvetica;
+}
 @media only screen and (max-width: 600px) {
   .form {
     flex-direction: column;

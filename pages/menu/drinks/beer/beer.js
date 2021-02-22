@@ -50,7 +50,7 @@ firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
+const user = localStorage.getItem('user');
 let beer = document.getElementById("beer");
 let count = 0;
 
@@ -100,28 +100,23 @@ db.collection("Loja")
                 </div>
                 <h4 style="font-weight: bold;"> Quantidade: </h4>
                 <div style="flex-direction: row;">
-                    <button onclick="add(true,'${
-                      doc.data().docId
-                    }')" class="buttomAdd">+</button>
-                    <input id='${
-                      doc.data().docId
-                    }' value="1" disabled class="spanLbl"></input>
-                    <button onclick="add(false,'${
-                      doc.data().docId
-                    }')" class="buttomAdd"
+                    <button onclick="add(true,'${doc.data().docId
+        }')" class="buttomAdd">+</button>
+                    <input id='${doc.data().docId
+        }' value="1" disabled class="spanLbl"></input>
+                    <button onclick="add(false,'${doc.data().docId
+        }')" class="buttomAdd"
                         style="margin-left: -10px;">-</button>
 
                 </div>
                 <div style="display: flex;">
                     <h3 style="margin-right: 10px;">R$</h3>
-                    <input id="price${doc.data().docId}" value='${
-        doc.data().Price
-      }' disabled class="spanValue"></input>
+                    <input id="price${doc.data().docId}" value='${doc.data().Price
+        }' disabled class="spanValue"></input>
                 </div>
                 <div class="buttomCart">
-                    <a href="#" class="button" id="${
-                      doc.id
-                    }" onclick="addCart(id)"
+                    <a href="#" class="button" id="${doc.id
+        }" onclick="addCart(id)"
                         style="text-align: center; width: 100%; color: #55212d; border-color: #55212d;">Adicionar
                         ao
                         Carrinho</a>
@@ -156,11 +151,27 @@ function add(param, id) {
 }
 
 function addCart(id) {
-  window.alert("adicionado ao carrinho!");
   let found = obj.find((element) => element.id == id);
-  cart.push(found);
-  var novaArr = cart.filter(function (este, i) {
-    return cart.indexOf(este) === i;
-  });
-  console.log(novaArr);
+
+  if (user != null) {
+
+    db.collection("Usuarios").doc(user).collection("Carrinho").add({
+      id: found.id,
+      count: found.count,
+      name: found.name,
+      price: found.price
+
+    })
+      .then(function (docRef) {
+        window.alert("adicionado ao carrinho!");
+      })
+      .catch(function (error) {
+        window.alert('Erro ao adicionar o jogo, consulte o suporte', error)
+
+      });
+
+  } else {
+    window.alert("Para realizar essa operação você precisa estar logado!")
+  }
+
 }
