@@ -14,7 +14,10 @@ const finalPrice = localStorage.getItem('finalPrice');
 const user = localStorage.getItem('user');
 let value = document.getElementById('value');
 let backMoney;
-
+let userName = localStorage.getItem('userName');
+let userPhone = localStorage.getItem('userPhone');
+let address = localStorage.getItem('address');
+let userUid = localStorage.getItem('user');
 value.innerHTML = `<h2>R$: ${finalPrice}</h2>`
 
 
@@ -31,13 +34,6 @@ function Card() {
 
 
 function send(method, moneyBack) {
-
-
-    let userName = localStorage.getItem('userName');
-    let userPhone = localStorage.getItem('userPhone');
-    let address = localStorage.getItem('address');
-    let finalPrice = localStorage.getItem('finalPrice');
-    let userUid = localStorage.getItem('user');
 
 
     if (userName == "" || userPhone == "" || address == "" || finalPrice == "" || userUid == "") {
@@ -57,7 +53,6 @@ function send(method, moneyBack) {
         })
             .then(function (docRef) {
                 window.alert('Pedido realizado com sucesso!')
-                console.log(docRef);
                 SetDocId(docRef.id)
             })
             .catch(function (error) {
@@ -70,13 +65,54 @@ function send(method, moneyBack) {
 }
 
 function SetDocId(docId) {
-    var gameRef = db.collection("Ademir").doc("vendasAbertas").collection("Sales").doc(docId)
 
+    var gameRef = db.collection("Ademir").doc("vendasAbertas").collection("Sales").doc(docId)
     return gameRef.update({
         docId: docId
     })
         .then(function () {
             console.log("Document successfully updated!");
+            setDocIdSale(docId)
+        })
+        .catch(function (error) {
+            console.error("Error updating document: ", error);
+        });
+
+}
+
+function setDocIdSale(docId) {
+    console.log(docId);
+    let ids = []
+    db.collection("Usuarios").doc(userUid).collection("Carrinho").where("reference", "==", "")
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                console.log(doc.id);
+                ids.push(doc.id)
+            })
+            setDocIdSalePart2(docId, ids)
+        })
+
+        .catch(function (error) {
+            console.log("Error getting documents: ", error);
+        });
+}
+
+function setDocIdSalePart2(docId, ids) {
+
+    console.log(ids);
+    for (let index = 0; index <= ids.length; index++) {
+        setDocIdSalePart3(docId, ids[index])
+    }
+}
+function setDocIdSalePart3(docId, ids) {
+    var UserRef = db.collection("Usuarios").doc(userUid).collection("Carrinho").doc(ids)
+    return UserRef.update({
+        reference: docId
+    })
+        .then(function () {
+            console.log("Document successfully updated!");
+            window.location.href = '../../pages/menu/menu.html'
         })
         .catch(function (error) {
             console.error("Error updating document: ", error);

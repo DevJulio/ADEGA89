@@ -153,17 +153,8 @@
                         <img class="imgProps" src="../../../../images/icons/icons8-shopping-cart-60.png" alt="">
                     </div>
 
-                    <div class="itemDetail">
-                        <span class="itemDetailLbl">Produto(s):</span>
-                        <span class="itemDetailLblSecondary">${doc.data().name}</span>
-                        <span class="itemDetailLbl">Preço unitário:</span>
-                        <span class="itemDetailLblSecondary">${doc.data().price}</span>
-                        <span class="itemDetailLbl">Quantidade:</span>
-                        <span class="itemDetailLblSecondary">X${doc.data().count}</span>
-                        <div id="btn" style="text-align-last: center;">
-                            <a href="#" onClick="removeDrink('${doc.id}')" class="button">Remover
-                                item(ns)</a>
-                        </div>
+                    <div id="sales">
+
                     </div>
 
 
@@ -223,7 +214,13 @@
     <script src="../../../../js/images-loaded.min.js"></script>
     <script src="../../../../js/lightbox.min.js"></script>
     <script src="../../../../js/site.js"></script>
-    <script src="./cadastro.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+    <script src="./Abertas.js"></script>
 
 </body>
 

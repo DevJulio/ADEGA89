@@ -159,7 +159,8 @@ function addCart(id) {
       id: found.id,
       count: found.count,
       name: found.name,
-      price: found.price
+      price: found.price,
+      reference: ''
 
     })
       .then(function (docRef) {
@@ -174,4 +175,7 @@ function addCart(id) {
     window.alert("Para realizar essa operação você precisa estar logado!")
   }
 
+}
+function redirect(param) {
+  window.location.href = param
 }

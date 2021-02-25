@@ -37,7 +37,7 @@ db.collection("Usuarios").where('docId', '==', user)
 
 db.collection("Usuarios")
     .doc(user)
-    .collection("Carrinho")
+    .collection("Carrinho").where("reference", "==", "")
     .get()
     .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
