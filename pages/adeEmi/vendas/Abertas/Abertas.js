@@ -84,18 +84,14 @@ setTimeout(() => {
     for (let index = 0; index < size; index++) {
 
         let aux = resultado[salesArr[index].docId];
-      
+
         let produtcName = []
         let produtcCount = []
-
+        let List = []
         for (let b = 0; b < aux.length; b++) {
-            produtcName.push(aux[b].name)
-            produtcCount.push(aux[b].count)
+            List.push("\n" + aux[b].name + " : " + aux[b].count + "\n")
         }
-        console.log(produtcName);
-        console.log(produtcCount);
-
-
+        console.log(List);
 
         sales.innerHTML += `
         <div class="itemDetail">
@@ -112,10 +108,9 @@ setTimeout(() => {
         <span class="itemDetailLbl">Número de contato</span>
         <span class="itemDetailLblSecondary">${salesArr[index].userPhone}</span>
         <span class="itemDetailLbl">Item(ns)</span>
-        <span class="itemDetailLblSecondary">${salesArr[index].docId}</span>
+        <span class="itemDetailLblSecondary">${List}</span>
         <div id="btn" style="text-align-last: center;">
-            <a href="#" onClick="removeDrink('')" class="button">Remover
-                item(ns)</a>
+            <a href="#" onClick="removeDrink('')" class="button">Entrar em contato</a>
         </div>
         </div>
     

@@ -107,23 +107,29 @@
                         </aside>
 
                         <!--Main Navigation-->
+                        <script>
+                            function redirect(param) {
+                                window.location.href = param
+                            }
+                        </script>
                         <nav id="nav-main">
                             <ul style="background-color: white;">
                                 <li onclick="redirect('../adeEmi.html')">
-                                    <a href="../adeEmi.html">Home</a>
+                                    <a href="">Home</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('../cadastro/cadastro.html')">
                                     <a href="#menu">Cadastro</a>
                                 </li>
-                                <li>
-                                    <a href="#vinhos">Edição do cardápio</a>
+                                <li onclick="redirect('../edicao/edicao.html')">
+                                    <a href="#nsdas">Edição do cardápio</a>
                                 </li>
-                                <li>
-                                    <a href="#vinhos">Vendas</a>
+                                <li onclick="redirect('../vendas/vendas.html')">
+                                    <a href="#asd">Vendas</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('../usuarios/usuarios.html')">
                                     <a href="#pricing">Usuários</a>
                                 </li>
+
                             </ul>
                         </nav>
                         <!--End of Main Navigation-->

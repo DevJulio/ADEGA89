@@ -33,6 +33,11 @@
 </head>
 
 <body>
+  <script>
+    function redirect(param) {
+      window.location.href = param
+    }
+  </script>
   <!-- Preloader -->
   <div id="preloader">
     <div id="status" class="la-ball-triangle-path">
@@ -99,34 +104,33 @@
 
             <!--Main Navigation-->
             <nav id="nav-main">
-              <ul style="background-color: white">
-                <li>
-                  <a href="#banner">Home</a>
+
+              <img src="../../../" alt="">
+              <ul style="background-color: white;">
+                <li onclick="redirect('../../../../index.html')">
+                  <a href="">Home</a>
+                </li>
+                <li onclick="redirect('../../../cart/details.html')">
+                  <a href="">Carrinho</a>
+                </li>
+                <li onclick="redirect('../../../menu/menu.html')">
+                  <a href="">Cardápio</a>
+                </li>
+                <li onclick="redirect('../../../menu/drinks/beer/beer.html')">
+                  <a href="">Cervejas</a>
+                </li>
+                <li onclick="redirect('../../../menu/drinks/wine/wine.html')">
+                  <a href="">Vinhos!</a>
                 </li>
 
-                <li onclick="redirect('../../../cart/details.html')">
-                  <a href="../../../cart/details.html">Carrinho</a>
+                <li onclick="redirect('../../../menu/food/food.html')">
+                  <a href="">Pratos</a>
                 </li>
-                <li>
-                  <a href="#menu">Cardápio</a>
+                <li onclick="redirect('../../../menu/drinks/drink/drink.html')">
+                  <a href="">Drinks</a>
                 </li>
-                <li>
-                  <a href="#cervejas">Cervejas</a>
-                </li>
-                <li>
-                  <a href="#vinhos">Vinhos!</a>
-                </li>
-                <li>
-                  <a href="#pricing">Assinaturas</a>
-                </li>
-                <li>
-                  <a href="#pratos">Pratos</a>
-                </li>
-                <li>
-                  <a href="#Drinks">Drinks</a>
-                </li>
-                <li>
-                  <a href="#pricing">Perfil</a>
+                <li onclick="redirect('../../../profile/profile.html')">
+                  <a href="">Perfil</a>
                 </li>
               </ul>
             </nav>

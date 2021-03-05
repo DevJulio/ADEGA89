@@ -105,23 +105,28 @@
                             <!--End of Social Icons in Header-->
 
                         </aside>
-
+                        <script>
+                            function redirect(param) {
+                                window.location.href = param
+                            }
+                        </script>
                         <!--Main Navigation-->
+
                         <nav id="nav-main">
                             <ul style="background-color: white;">
                                 <li>
                                     <a href="#menu">Home</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('cadastro/cadastro.html')">
                                     <a href="#cervejas">Cadastro</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('edicao/edicao.html')">
                                     <a href="#cervejas">Edição do cardápio</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('vendas/vendas.html')">
                                     <a href="#vinhos">Vendas</a>
                                 </li>
-                                <li>
+                                <li onclick="redirect('usuarios/usuarios.html')">
                                     <a href="#pricing">Usuários</a>
                                 </li>
 
@@ -167,7 +172,7 @@
                         </a>
                     </div>
                     <div class="col-2 wow fadeInUp" style="margin-top: -10px;" data-wow-delay="0.6s">
-                        <a href="./drinks/beer/beer.html">
+                        <a href="vendas/vendas.html" onclick="redirect('vendas/vendas.html')">
                             <div style="margin-top: 10px;" class="icon">
                                 <img src="../../images/icons/admIcons/icons8-shopping-cart-90.png" alt="">
                             </div>
@@ -177,7 +182,7 @@
                         </a>
                     </div>
                     <div class="col-2 wow fadeInUp" style="margin-top: -10px;" data-wow-delay="0.6s">
-                        <a href="./drinks/beer/beer.html">
+                        <a href="" onclick="redirect('usuarios/usuarios.html')">
                             <div style="margin-top: 10px;" class="icon">
                                 <img src="../../images/icons/admIcons/icons8-user-group-90.png" alt="">
                             </div>

@@ -107,32 +107,30 @@
                         </aside>
 
                         <!--Main Navigation-->
+                        <script>
+                            function redirect(param) {
+                                window.location.href = param
+                            }
+                        </script>
+                        <img src="../" alt="">
                         <nav id="nav-main">
                             <ul style="background-color: white;">
-                                <li>
-                                    <a href="#banner">Home</a>
+                                <li onclick="redirect('../../../adeEmi.html')">
+                                    <a href="">Home</a>
                                 </li>
-                                <li>
-                                    <a href="#menu">Cardápio</a>
+                                <li onclick="redirect('../../../cadastro/cadastro.html')">
+                                    <a href="#cervejas">Cadastro</a>
                                 </li>
-                                <li>
-                                    <a href="#cervejas">Cervejas</a>
+                                <li onclick="redirect('../../../edicao/edicao.html')">
+                                    <a href="#menu">Edição do cardápio</a>
                                 </li>
-                                <li>
-                                    <a href="#vinhos">Vinhos!</a>
+                                <li onclick="redirect('../../../vendas/vendas.html')">
+                                    <a href="#asd">Vendas</a>
                                 </li>
-                                <li>
-                                    <a href="#pricing">Assinaturas</a>
+                                <li onclick="redirect('../../../usuarios/usuarios.html')">
+                                    <a href="#pricing">Usuários</a>
                                 </li>
-                                <li>
-                                    <a href="#pratos">Pratos</a>
-                                </li>
-                                <li>
-                                    <a href="#Drinks">Drinks</a>
-                                </li>
-                                <li>
-                                    <a href="#pricing">Perfil</a>
-                                </li>
+
                             </ul>
                         </nav>
                         <!--End of Main Navigation-->
