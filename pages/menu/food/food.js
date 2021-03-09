@@ -1,40 +1,62 @@
-var obj = [
-    {
-        id: "BM",
-        price: "250.00",
-        count: 1
-    },
-    {
-        id: "CN",
-        price: "10.00",
-        count: 1
-    },
-]
-var cart = []
+firebaseConfig = {
+    apiKey: "AIzaSyB8TIudzz7sjlXHLhvBMO_KXh4Uv5rSErk",
+    authDomain: "adega89-93dee.firebaseapp.com",
+    projectId: "adega89-93dee",
+    storageBucket: "adega89-93dee.appspot.com",
+    messagingSenderId: "31643059155",
+    appId: "1:31643059155:web:3bc244a47c8f057130a526",
+    measurementId: "G-S4KQ5E5NPK",
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const user = localStorage.getItem('user');
+let foodDiv = document.getElementById("foodDiv");
+let count = 0;
 
-function add(param, id) {
+let obj = [];
+let cart = [];
 
-    let found = obj.find(element => element.id == id);
-    if (param) {
-        found.count++;
-        document.getElementById('qnt' + id).value = found.count;
-        document.getElementById('price' + id).value = (found.price * found.count).toFixed(2);
-    } else {
-        if (found.count > 1) {
-            found.count--;
-            document.getElementById('qnt' + id).value = found.count;
-            document.getElementById('price' + id).value = ((document.getElementById('price' + id).value) - Number(found.price)).toFixed(2);
-        }
-    }
-}
+db.collection("Loja")
+    .doc("Pratos")
+    .collection("Pratos")
+    .where("active", "==", true)
+    .get()
+    .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            console.log(doc.id, " => ", doc.data());
+            obj.push({
+                id: doc.data().docId,
+                price: doc.data().Price,
+                count: 1,
+                name: doc.data().Nome,
+            });
+            foodDiv.innerHTML += `
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="topDetails">
+                    <a href="">
+                        <h3 class="titleAux titleIndent">${doc.data().Nome}</h3>
+                        <div class="geeks">
 
-function addCart(id) {
-    window.alert('adicionado ao carrinho!')
-    let found = obj.find(element => element.id == id);
-    cart.push(found)
-    var novaArr = cart.filter(function (este, i) {
-        return cart.indexOf(este) === i;
+                            <img class="imgProps" src="${doc.data().imagemPerfil}" alt="">
+                        </div>
+                    </a>
+
+                </div>
+                <div class="details" style="height: 300px;">
+                    <div class="moreDetails">
+                        <h4 style="font-weight: bold;"> Descrição: </h4>
+                        <p>${doc.data().Descricao}</p>
+                    </div>
+                    <div style="display: flex;">
+                        <h3 style="margin-right: 10px;">R$</h3>
+                        <input id="priceBM" value="${doc.data().Price}" disabled class="spanValue"></input>
+                    </div>
+                </div>
+
+            </div>
+            `;
+        });
+    })
+    .catch(function (error) {
+        console.log("Error getting documents: ", error);
     });
-    console.log(novaArr);
-
-}

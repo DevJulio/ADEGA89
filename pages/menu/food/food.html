@@ -132,7 +132,7 @@
                                 </li>
 
                                 <li onclick="redirect('../../menu/food/food.html')">
-                                    <a href="">Pratos</a>
+                                    <a href="#menu">Pratos</a>
                                 </li>
                                 <li onclick="redirect('../../menu/drinks/drink/drink.html')">
                                     <a href="">Drinks</a>
@@ -165,81 +165,9 @@
                             <img class="imgProps" src="../../../images/icons/icons8-room-service-60.png" alt="">
                         </div>
                     </div>
-
-
-                    <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="topDetails">
-                            <a href="">
-                                <h3 class="titleAux titleIndent">Antepasto de beringela</h3>
-                                <div class="geeks">
-
-                                    <img class="imgProps" src="../../../images/products/munsei.jpg" alt="">
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="details" style="height: 300px;">
-                            <div class="moreDetails">
-                                <h4 style="font-weight: bold;"> Descrição: </h4>
-                                <p>isso é uma descrição testeisso é uma descrição testeisso é uma descrição testeisso é
-                                    uma descrição testeisso é uma descrição testeisso é uma descrição testeisso é uma
-                                    descrição testeisso é uma descrição testeisso é uma descrição testeisso é uma
-                                </p>
-                            </div>
-                            <div style="display: flex;">
-                                <h3 style="margin-right: 10px;">R$</h3>
-                                <input id="priceBM" value="250.00" disabled class="spanValue"></input>
-                            </div>
-                        </div>
+                    <div id="foodDiv">
 
                     </div>
-                    <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="topDetails">
-                            <a href="">
-                                <h3 class="titleAux titleIndent">Escondidinho de moranga</h3>
-                                <div class="geeks">
-
-                                    <img class="imgProps" src="../../../images/products/ante.jpg" alt="">
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="details" style="height: 300px;">
-                            <div class="moreDetails">
-                                <h4 style="font-weight: bold;"> Descrição: </h4>
-                                <p>isso é uma descrição teste</p>
-                            </div>
-                            <div style="display: flex;">
-                                <h3 style="margin-right: 10px;">R$</h3>
-                                <input id="priceBM" value="250.00" disabled class="spanValue"></input>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="topDetails">
-                            <a href="">
-                                <h3 class="titleAux titleIndent">Tábua de frios</h3>
-                                <div class="geeks">
-
-                                    <img class="imgProps" src="../../../images/products/frios.jpg" alt="">
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="details" style="height: 300px;">
-                            <div class="moreDetails">
-                                <h4 style="font-weight: bold;"> Descrição: </h4>
-                                <p>isso é uma descrição teste</p>
-                            </div>
-                            <div style="display: flex;">
-                                <h3 style="margin-right: 10px;">R$</h3>
-                                <input id="priceBM" value="250.00" disabled class="spanValue"></input>
-                            </div>
-                        </div>
-
-                    </div>
-
 
             </section>
             <aside id="menu" class="row text-center scrollto clearfix" data-featherlight-gallery
@@ -295,6 +223,14 @@
     <script src="../../../js/images-loaded.min.js"></script>
     <script src="../../../js/lightbox.min.js"></script>
     <script src="../../../js/site.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
     <script src="./food.js"></script>
 
 </body>

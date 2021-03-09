@@ -84,7 +84,7 @@ function AddDrink(Arg) {
             Price,
             imagemPerfil: imagemPerfil,
             active: true,
-            out: true,
+            out: false,
             docId: ''
         })
             .then(function (docRef) {

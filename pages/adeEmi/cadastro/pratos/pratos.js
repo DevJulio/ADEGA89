@@ -35,7 +35,7 @@ function insereImg() {
     if (file2 != undefined) {
         var nome = Math.random() * 100
 
-        var storageRef = firebase.storage().ref('Cerveja ' + nome);
+        var storageRef = firebase.storage().ref('Prato ' + nome);
 
         var task = storageRef.put(file2);
 
@@ -55,18 +55,18 @@ function insereImg() {
                 storageRef.getDownloadURL().then(function (url) {
                     var imgBanner = url
                     console.log(imgBanner)
-                    AddDrink(imgBanner)
+                    AddPrato(imgBanner)
                 });
 
             }
 
         );
     } else {
-        AddDrink('')
+        AddPrato('')
     }
 
 }
-function AddDrink(Arg) {
+function AddPrato(Arg) {
 
     let Nome = getForm('Nome').value
     let Descricao = getForm('Descricao').value
@@ -84,11 +84,11 @@ function AddDrink(Arg) {
             Price,
             imagemPerfil: imagemPerfil,
             active: true,
-            out: true,
+            out: false,
             docId: ''
         })
             .then(function (docRef) {
-                window.alert('Vinho cadastrado!')
+                window.alert('Prato cadastrado!')
                 SetDocId(docRef.id)
                 getForm('Nome').value = '';
                 getForm('Descricao').value = '';

@@ -5,10 +5,11 @@ firebaseConfig = {
     storageBucket: "adega89-93dee.appspot.com",
     messagingSenderId: "31643059155",
     appId: "1:31643059155:web:3bc244a47c8f057130a526",
-    measurementId: "G-S4KQ5E5NPK"
+    measurementId: "G-S4KQ5E5NPK",
 };
 firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
+const db = firebase.firestore();
+const user = localStorage.getItem('user');
 
 
 firebase.auth().signOut().then(function () {
@@ -68,8 +69,11 @@ function Logar() {
                 .then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
                         console.log(doc.data());
-                        window.localStorage.setItem("UidUsuarioLogado", doc.data().idUsuario)
+                        // if (doc.data().Adm) {
+                        window.localStorage.setItem("user", doc.data().docId)
                         location.href = "../../index.html";
+                        // }
+
                     });
                 })
                 .catch(function (error) {

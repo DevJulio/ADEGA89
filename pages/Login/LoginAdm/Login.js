@@ -1,15 +1,15 @@
 firebaseConfig = {
-    apiKey: "AIzaSyAW6PPc6o7-b_jFLh_1LGi44u9NyNMDF7w",
-    authDomain: "vsgamehall.firebaseapp.com",
-    databaseURL: "https://vsgamehall.firebaseio.com",
-    projectId: "vsgamehall",
-    storageBucket: "vsgamehall.appspot.com",
-    messagingSenderId: "556156378986",
-    appId: "1:556156378986:web:8642bf6a4382c85c910f13",
-    measurementId: "G-H9MPWK05D1"
+    apiKey: "AIzaSyB8TIudzz7sjlXHLhvBMO_KXh4Uv5rSErk",
+    authDomain: "adega89-93dee.firebaseapp.com",
+    projectId: "adega89-93dee",
+    storageBucket: "adega89-93dee.appspot.com",
+    messagingSenderId: "31643059155",
+    appId: "1:31643059155:web:3bc244a47c8f057130a526",
+    measurementId: "G-S4KQ5E5NPK",
 };
 firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
+const db = firebase.firestore();
+const user = localStorage.getItem('user');
 
 
 firebase.auth().signOut().then(function () {
@@ -70,8 +70,8 @@ function Logar() {
                     querySnapshot.forEach(function (doc) {
                         console.log(doc.data());
                         if (doc.data().Adm) {
-                            window.localStorage.setItem("UidUsuarioLogado", doc.data().idUsuario)
-                            location.href = "../../Adm/PainelAdm/PainelAdm.html";
+                            window.localStorage.setItem("user", doc.data().docId)
+                            location.href = "../../../index.html";
                         }
 
                     });
