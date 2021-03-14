@@ -15,7 +15,7 @@ let cartAux = []
 db.collection("Ademir")
     .doc("vendasAbertas")
     .collection("Sales")
-    .where("active", "==", true)
+    .where("active", "==", false)
     .get()
     .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
@@ -109,10 +109,7 @@ setTimeout(() => {
         <span class="itemDetailLblSecondary">${salesArr[index].userPhone}</span>
         <span class="itemDetailLbl">Item(ns)</span>
         <span class="itemDetailLblSecondary">${List}</span>
-        <div id="btn" style="text-align-last: center;">
-            <a href="https://api.whatsapp.com/send?phone=55${salesArr[index].userPhone}&text=Olá%20somos%20a%20Adega%2089!" class="button">Entrar em contato</a>
-            <a href="#" id="${salesArr[index].docId}" onClick="Finalize(id)" class="button">Fechar venda</a>
-        </div>
+   
         </div>
     
         `;
@@ -120,26 +117,4 @@ setTimeout(() => {
 
 
 }, 2000);
-
-
-
-
-function Finalize(argument) {
-
-    console.log(argument);
-
-    var atualizacao = db.collection("Ademir").doc("vendasAbertas").collection("Sales").doc(argument)
-    return atualizacao.update({
-        active: false
-    })
-        .then(function () {
-            window.alert("Venda fechada com suscesso!")
-            location.reload();
-        })
-        .catch(function (error) {
-            console.error("Error updating document: ", error);
-            window.alert("Errro ao fechar!");
-        });
-}
-
 
