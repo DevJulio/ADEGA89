@@ -13,14 +13,14 @@ const db = firebase.firestore();
 let formData = document.getElementById("formData");
 let drinkId = localStorage.getItem("drinkId");
 
-console.log(drinkId);
+function getForm(params) {
+    return document.getElementById(params);
+}
 
 
 db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==", drinkId.trim()).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
         console.log(doc.id, " => ", doc.data());
-
-        file1 = doc.data().imagemPerfil;
 
         formData.innerHTML = `
             <main id="content">
@@ -86,21 +86,16 @@ db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==",
                                 aria-label="Ex: bélgica">
                         </div>
                     </div>
-                    <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${doc.data().imagemPerfil}" alt="">
-                    
-                    <div class="form">
-                        <div class="column">
-                            <label for="Foto do Game" class="lbl">Nova foto</label>
-                            <div class="formItem">
-                                <input type="file" class="custom-file-input" id="imagemPerfil">
-                                <label class="custom-file-label" for="customFile"></label>
-                                </br></br>
-                            </div>
-                            </br>
-                        </div>
-                    </div>
+
 
                     <button class="button" onclick="UpdateDrink()" style="cursor: pointer;">Atualizar</button>
+
+                    
+                    <div style="display: flex; flex-direction: column; place-items: center;">
+                    <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${doc.data().imagemPerfil}" alt="">
+                    <button class="button" onclick="UpdateDrink()" style="cursor: pointer;">Atualizar imagem</button>
+
+                    </div>
 
                 </div>
             </section>
@@ -108,11 +103,8 @@ db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==",
                 data-featherlight-filter="a">
 
             </aside>
-        </main>
-
-            
+        </main>            
             `
-
     });
 })
     .catch(function (error) {
@@ -120,22 +112,14 @@ db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==",
     });
 
 
+function UpdateDrink() {
 
-
-function getForm(params) {
-    return document.getElementById(params);
-}
-
-
-
-function UpdateDrink(Arg) {
     let Nome = getForm('Nome').value
     let Color = getForm('Color').value
     let Tipo = getForm('Tipo').value
     let Cup = getForm('Cup').value
     let Price = getForm('Price').value
     let Pais = getForm('Pais').value
-    let imagemPerfil = Arg ? Arg : file1;
 
     if (Nome == "" || Tipo == "" || Pais == "" || Price == "" || Color == "" || Cup == "") {
         window.alert('Verifique todos os campos e tente novamente')
@@ -168,4 +152,3 @@ function UpdateDrink(Arg) {
 function Descartar() {
     location.reload();
 }
-

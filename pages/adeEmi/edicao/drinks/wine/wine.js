@@ -133,6 +133,11 @@ db.collection("Loja")
     });
 
 
+function editar(argument) {
+    localStorage.setItem("drinkId", argument);
+    window.location.href = "./wineEdit.html"
+}
+
 
 function Desativar(argument) {
 

@@ -120,6 +120,10 @@ db.collection("Loja")
         console.log("Error getting documents: ", error);
     });
 
+function editar(argument) {
+    localStorage.setItem("drinkId", argument);
+    window.location.href = "./drinkEdit.html"
+}
 
 
 function desativar(argument) {

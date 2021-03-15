@@ -110,6 +110,20 @@ db.collection("Loja")
     });
 
 
+
+
+
+
+function editar(argument) {
+    localStorage.setItem("drinkId", argument);
+    window.location.href = "./foodEdit.html"
+}
+
+
+
+
+
+
 function Desativar(argument) {
 
     console.log(argument);
@@ -119,7 +133,7 @@ function Desativar(argument) {
         active: false
     })
         .then(function () {
-            window.alert("Bebida Desativada com suscesso!")
+            window.alert("Prato Desativado com suscesso!")
             location.reload();
         })
         .catch(function (error) {
@@ -136,7 +150,7 @@ function Ativar(argument) {
         active: true
     })
         .then(function () {
-            window.alert("Bebida ativada com suscesso!")
+            window.alert("Prato ativado com suscesso!")
             location.reload();
         })
         .catch(function (error) {
