@@ -21,7 +21,8 @@ function getForm(params) {
 db.collection("Loja").doc("Bebidas").collection("Drinks").where("docId", "==", drinkId.trim()).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
         console.log(doc.id, " => ", doc.data());
-
+        localStorage.setItem("imgUrl", doc.data().imagemPerfil)
+        localStorage.setItem("typeOf", "Drinks");
         formData.innerHTML = `
 
 

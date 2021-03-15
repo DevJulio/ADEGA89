@@ -12,7 +12,6 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 let formData = document.getElementById("formData");
 let drinkId = localStorage.getItem("drinkId");
-
 function getForm(params) {
     return document.getElementById(params);
 }
@@ -21,7 +20,8 @@ function getForm(params) {
 db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==", drinkId.trim()).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
         console.log(doc.id, " => ", doc.data());
-
+        localStorage.setItem("imgUrl", doc.data().imagemPerfil)
+        localStorage.setItem("typeOf", "Cerveja");
         formData.innerHTML = `
             <main id="content">
             <section id="menu" class="secondary-color text-center scrollto clearfix ">
@@ -93,7 +93,7 @@ db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==",
                     
                     <div style="display: flex; flex-direction: column; place-items: center;">
                     <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${doc.data().imagemPerfil}" alt="">
-                    <button class="button" onclick="UpdateDrink()" style="cursor: pointer;">Atualizar imagem</button>
+                    <button class="button" onclick="editarImg()" style="cursor: pointer;">Atualizar imagem</button>
 
                     </div>
 
@@ -110,6 +110,18 @@ db.collection("Loja").doc("Bebidas").collection("Cervejas").where("docId", "==",
     .catch(function (error) {
         console.log("Error getting documents: ", error);
     });
+
+
+
+
+
+
+function editarImg(argument) {
+    localStorage.setItem("drinkId", argument);
+    window.location.href = "./beerEdit.html"
+}
+
+
 
 
 function UpdateDrink() {
