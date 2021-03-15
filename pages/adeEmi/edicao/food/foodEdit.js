@@ -1,12 +1,11 @@
-
 firebaseConfig = {
-    apiKey: "AIzaSyB8TIudzz7sjlXHLhvBMO_KXh4Uv5rSErk",
-    authDomain: "adega89-93dee.firebaseapp.com",
-    projectId: "adega89-93dee",
-    storageBucket: "adega89-93dee.appspot.com",
-    messagingSenderId: "31643059155",
-    appId: "1:31643059155:web:3bc244a47c8f057130a526",
-    measurementId: "G-S4KQ5E5NPK",
+  apiKey: "AIzaSyB8TIudzz7sjlXHLhvBMO_KXh4Uv5rSErk",
+  authDomain: "adega89-93dee.firebaseapp.com",
+  projectId: "adega89-93dee",
+  storageBucket: "adega89-93dee.appspot.com",
+  messagingSenderId: "31643059155",
+  appId: "1:31643059155:web:3bc244a47c8f057130a526",
+  measurementId: "G-S4KQ5E5NPK",
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -14,14 +13,20 @@ let formData = document.getElementById("formData");
 let drinkId = localStorage.getItem("drinkId");
 
 function getForm(params) {
-    return document.getElementById(params);
+  return document.getElementById(params);
 }
 
-
-db.collection("Loja").doc("Pratos").collection("Pratos").where("docId", "==", drinkId.trim()).get().then(function (querySnapshot) {
+db.collection("Loja")
+  .doc("Pratos")
+  .collection("Pratos")
+  .where("docId", "==", drinkId.trim())
+  .get()
+  .then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
-        console.log(doc.id, " => ", doc.data());
-        formData.innerHTML = `
+      console.log(doc.id, " => ", doc.data());
+      localStorage.setItem("imgUrl", doc.data().imagemPerfil);
+      localStorage.setItem("typeOf", "Drinks");
+      formData.innerHTML = `
 
         <main id="content">
         <section id="menu" class="secondary-color text-center scrollto clearfix ">
@@ -34,12 +39,16 @@ db.collection("Loja").doc("Pratos").collection("Pratos").where("docId", "==", dr
                     <div class="column">
 
                         <label for="inputEmail4" class="lbl">Nome</label>
-                        <input type="text" id="Nome" value="${doc.data().Nome}" class="formItem" placeholder="Nome" aria-label="Nome">
+                        <input type="text" id="Nome" value="${
+                          doc.data().Nome
+                        }" class="formItem" placeholder="Nome" aria-label="Nome">
                     </div>
 
                     <div class="column">
                         <label for="inputEmail4" class="lbl">Valor</label>
-                        <input type="number" class="formItem" value="${doc.data().Price}" id="Price" placeholder="Ex: 10.00"
+                        <input type="number" class="formItem" value="${
+                          doc.data().Price
+                        }" id="Price" placeholder="Ex: 10.00"
                             aria-label="Ex: 10.00">
 
                     </div>
@@ -50,7 +59,9 @@ db.collection("Loja").doc("Pratos").collection("Pratos").where("docId", "==", dr
 
                     <div class="column">
                         <label for="exampleFormControlTextarea1" class="lbl">Descrição</label>
-                        <textarea class="formItem" id="Descricao" rows="3">${doc.data().Descricao}</textarea>
+                        <textarea class="formItem" id="Descricao" rows="3">${
+                          doc.data().Descricao
+                        }</textarea>
                     </div>
 
                 </div>
@@ -59,7 +70,9 @@ db.collection("Loja").doc("Pratos").collection("Pratos").where("docId", "==", dr
 
                     
                 <div style="display: flex; flex-direction: column; place-items: center;">
-                <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${doc.data().imagemPerfil}" alt="">
+                <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${
+                  doc.data().imagemPerfil
+                }" alt="">
                 <button class="button" onclick="UpdateDrink()" style="cursor: pointer;">Atualizar imagem</button>
 
                 </div>
@@ -74,43 +87,44 @@ db.collection("Loja").doc("Pratos").collection("Pratos").where("docId", "==", dr
 
 
 
-            `
+            `;
     });
-})
-    .catch(function (error) {
-        console.log("Error getting documents: ", error);
-    });
-
+  })
+  .catch(function (error) {
+    console.log("Error getting documents: ", error);
+  });
+function editarImg() {
+  window.location.href = "../imgEdit.html";
+}
 function UpdateDrink() {
+  let Nome = getForm("Nome").value;
+  let Descricao = getForm("Descricao").value;
+  let Price = getForm("Price").value;
 
-    let Nome = getForm('Nome').value
-    let Descricao = getForm('Descricao').value
-    let Price = getForm('Price').value
+  if (Nome == "" || Price == "") {
+    window.alert("Verifique todos os campos e tente novamente");
+  } else {
+    let Att = db
+      .collection("Loja")
+      .doc("Pratos")
+      .collection("Pratos")
+      .doc(drinkId.toString().trim());
 
-    if (Nome == "" || Price == "") {
-        window.alert('Verifique todos os campos e tente novamente')
-    } else {
-        let Att = db.collection("Loja")
-            .doc("Pratos")
-            .collection("Pratos").doc(drinkId.toString().trim())
-
-        return Att.update({
-            Nome: Nome,
-            Descricao: Descricao,
-            Price: Price,
-        })
-            .then(function () {
-                window.alert("Prato atualizado com suscesso!")
-                location.reload()
-
-            })
-            .catch(function (error) {
-                console.error("Error updating document: ", error);
-                window.alert("Errro ao atualizar!");
-            });
-
-    }
+    return Att.update({
+      Nome: Nome,
+      Descricao: Descricao,
+      Price: Price,
+    })
+      .then(function () {
+        window.alert("Prato atualizado com suscesso!");
+        location.reload();
+      })
+      .catch(function (error) {
+        console.error("Error updating document: ", error);
+        window.alert("Errro ao atualizar!");
+      });
+  }
 }
 function Descartar() {
-    location.reload();
+  location.reload();
 }
