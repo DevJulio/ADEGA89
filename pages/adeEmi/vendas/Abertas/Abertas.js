@@ -110,7 +110,7 @@ setTimeout(() => {
         <span class="itemDetailLbl">Item(ns)</span>
         <span class="itemDetailLblSecondary">${List}</span>
         <div id="btn" style="text-align-last: center;">
-            <a href="https://api.whatsapp.com/send?phone=55${salesArr[index].userPhone}&text=Olá%20somos%20a%20Adega%2089!" class="button">Entrar em contato</a>
+            <a href="https://api.whatsapp.com/send?phone=55${salesArr[index].userPhone}&text=Ol%C3%A1%2C%20somos%20a%20Adega%2089%20e%20gostar%C3%ADamos%20de%20confirmar%20seu%20%20pedido!" class="button">Entrar em contato</a>
             <a href="#" id="${salesArr[index].docId}" onClick="Finalize(id)" class="button">Fechar venda</a>
         </div>
         </div>

@@ -62,17 +62,22 @@ function Logar() {
 
     }).then(function () {
         var user = firebase.auth().currentUser;
+
+        console.log(user);
+        console.log(Email);
+
+
         if (flag) {
 
-            db.collection("Usuarios").where("Email", "==", user.email.toString().trim())
+            db.collection("Ademir").doc("Users").collection("Users").where("email", "==", user.email.toString().trim())
                 .get()
                 .then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
-                        console.log(doc.data());
-                        if (doc.data().Adm) {
-                            window.localStorage.setItem("user", doc.data().docId)
-                            location.href = "../../../index.html";
-                        }
+                        // console.log(doc.data());
+                        // if (doc.data().Adm) {
+                        window.localStorage.setItem("userAdm", doc.data().docId)
+                        location.href = "../../adeEmi/adeEmi.html";
+                        // }
 
                     });
                 })

@@ -161,7 +161,11 @@
                     <!--Call to Action-->
                     <a href="pages/menu/menu.html" class="button">Acesse o cardápio</a>
                     <!--End Call to Action-->
+                    <h3>Delivery:</h3>
+                    <div id="ssts">
+                    </div>
 
+                    <h2>Funcionamento do delivery: segunda a sexta de 08:00 as 11:00 das 18:00 as 22:00</h2>
                 </div>
 
             </div>
@@ -216,6 +220,7 @@
                                 <h4>Queijos finos</h4>
                                 <p>Cu vero ipsum vim, doctus facilisi sea in. Eam ex falli honestatis repudiandae, sit
                                     detracto mediocrem disputationi</p>
+                                <a href="" style="cursor: pointer;">Conheça os Queijos</a>
                             </div>
                         </div>
                         <!--End of Icon Block-->
@@ -301,10 +306,13 @@
                             width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
                             aria-hidden="false" tabindex="0"></iframe>
                         <!-- Just replace the Video ID "UYJ5IjBRlW8" with the ID of your video on YouTube (Found within the URL) -->
-                        <a href="#" data-videoid="UYJ5IjBRlW8" data-videosite="youtube"
-                            class="button video link-lightbox">
-                            Assista nosso vídeo <i class="fa fa-play" aria-hidden="true"></i>
+                        <a href="#" class="button video link-lightbox">
+                            Assista nosso vídeo #1 <i class="fa fa-play" aria-hidden="true"></i>
                         </a>
+                        <a href="#" class="button video link-lightbox">
+                            Assista nosso vídeo #2 <i class="fa fa-play" aria-hidden="true"></i>
+                        </a>
+
                     </div>
                     <!--End Content Right Side-->
 
@@ -428,7 +436,15 @@
     <script src="js/images-loaded.min.js"></script>
     <script src="js/lightbox.min.js"></script>
     <script src="js/site.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+    <script src="index.js"></script>
 
 </body>
 

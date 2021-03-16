@@ -73,9 +73,10 @@ db.collection("Usuarios")
             style="width: 100%;">
             <div class="pricing-block-content">
                 <h3>Valor total</h3>
-                <p class="pricing-sub">Valor dos itens somados</p>
+                <p class="pricing-sub">Valor dos itens somados, mais R$ 4,00 da taxa de entrega</p>
+                
                 <div class="pricing">
-                    <div class="price"><span>$</span>${finalPrice}</div>
+                    <div class="price"><span>$</span>${finalPrice + 4}</div>
                 </div>
                 <div id="address">
                     <h2 style="font-size: 30px;">Endereço p/ entrega</h2>
