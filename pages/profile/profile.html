@@ -104,24 +104,40 @@
                             <!--End of Social Icons in Header-->
 
                         </aside>
-
+                        <script>
+                            function redirect(param) {
+                                window.location.href = param
+                            }
+                        </script>
                         <!--Main Navigation-->
                         <nav id="nav-main">
                             <ul style="background-color: white;">
-                                <li>
-                                    <a href="#vinhos">Home</a>
+                                <li onclick="redirect('../../index.html')">
+                                    <a href="#banner">Home</a>
                                 </li>
-                                <li>
-                                    <a href="#menu">Cadastro</a>
+                                <li onclick="redirect('../../pages/cart/details.html')">
+                                    <a href="">Carrinho</a>
                                 </li>
-                                <li>
-                                    <a href="#vinhos">Edição do cardápio</a>
+                                <li onclick="redirect('../../pages/menu/menu.html')">
+                                    <a href="">Cardápio</a>
                                 </li>
-                                <li>
-                                    <a href="#vinhos">Vendas</a>
+                                <li onclick="redirect('../../pages/menu/drinks/beer/beer.html')">
+                                    <a href="./drinks/beer/beer.html">Cervejas</a>
                                 </li>
-                                <li>
-                                    <a href="#pricing">Usuários</a>
+                                <li onclick="redirect('../../pages/menu/drinks/wine/wine.html')">
+                                    <a href="./drinks/wine/wine.html">Vinhos!</a>
+                                </li>
+                                <li onclick="redirect('../../index.html')">
+                                    <a href="#pricing">Assinaturas</a>
+                                </li>
+                                <li onclick="redirect('../../pages/menu/food/food.html')">
+                                    <a href="food/food.html">Pratos</a>
+                                </li>
+                                <li onclick="redirect('../../pages/menu/drinks/drink/drink.html')">
+                                    <a href="./drinks/drink/drink.html">Drinks</a>
+                                </li>
+                                <li onclick="redirect('../../pages/profile/profile.html')">
+                                    <a href="#pricing">Perfil</a>
                                 </li>
                             </ul>
                         </nav>
@@ -180,7 +196,6 @@
                 <!--End of Social Icons in Footer-->
             </div>
         </footer>
-
 
     </div>
 

@@ -81,12 +81,22 @@ if (user) {
 
 } else {
     formData.innerHTML = `
-    <button class="button" onclick="AddUser()" style="cursor: pointer;">Você não tem um cadastro, clique para criar</button>
-    
+    <div style="display: flex; flex-direction: column; place-items: center; margin-top: 20em;">
+    <button class="button" onclick="AddUser()" style="cursor: pointer;">Se você não tem um cadastro, clique para criar</button>
+    <button class="button" onclick="login()" style="cursor: pointer;">Clique para acessar sua conta</button>    
+    </div>
     `
 }
 
 
+
+function AddUser() {
+    window.location.href = "../register/register.html";
+}
+
+function login() {
+    window.location.href = "../Login/Login.html";
+}
 
 function Update() {
     formData.innerHTML = `

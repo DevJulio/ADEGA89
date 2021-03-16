@@ -116,7 +116,7 @@ db.collection("Loja")
                             
                     </div>
                     <div class="buttomCart">
-                    <a href="#" class="button" id="${doc.id}" onclick="desativar(id)"
+                    <a href="#" class="button" id="${doc.id}" onclick="Ativar(id)"
                         style="text-align: center; width: 100%; color: #55212d; border-color: #55212d;">Ativar</a>
                         
                 </div>

@@ -110,29 +110,46 @@ function add(param, id) {
 }
 
 function addCart(id) {
-  let found = obj.find((element) => element.id == id);
 
-  if (user != null) {
 
-    db.collection("Usuarios").doc(user).collection("Carrinho").add({
-      id: found.id,
-      count: found.count,
-      name: found.name,
-      price: found.price,
-      reference: ''
+  let docRef = db.collection("Loja").doc("Delivery");
+  docRef.get().then((doc) => {
 
-    })
-      .then(function (docRef) {
-        window.alert("adicionado ao carrinho!");
-      })
-      .catch(function (error) {
-        window.alert('Erro ao adicionar o jogo, consulte o suporte', error)
+    if (doc.data().Delivery) {
+      let found = obj.find((element) => element.id == id);
 
-      });
+      if (user != null) {
 
-  } else {
-    window.alert("Para realizar essa operação você precisa estar logado!")
-  }
+        db.collection("Usuarios").doc(user).collection("Carrinho").add({
+          id: found.id,
+          count: found.count,
+          name: found.name,
+          price: found.price,
+          reference: ''
+
+        })
+          .then(function (docRef) {
+            window.alert("adicionado ao carrinho!");
+          })
+          .catch(function (error) {
+            window.alert('Erro ao adicionar o jogo, consulte o suporte', error)
+
+          });
+
+      } else {
+        window.alert("Para realizar essa operação você precisa estar logado!")
+      }
+
+    } else {
+      window.alert("O Delivery está fechado no momento, tente novamente mais tarde!")
+    }
+
+
+  }).catch((error) => {
+    console.log("Error getting document:", error);
+  });
+
+
 
 }
 function redirect(param) {

@@ -69,15 +69,15 @@
 .buttomAdd {
     width: 50px;
     height: 50px;
-    font-size: 40px;
+    font-size: 2.2em;
     border-radius: 25%;
     color: #55212d;
 }
 
 .spanLbl {
-    font-size: 40px;
+    font-size: 2.2em;
     color: #55212d;
-    width: 22%;
+    width: 2em;
     background-color: #ccc;
     border-color: #ccc;
     margin-left: -4px;
@@ -86,7 +86,7 @@
 
 .spanValue {
     font-family: "Open Sans", sans-serif, Arial, Helvetica;
-    font-size: 30px;
+    font-size: 1.9em;
     font-weight: 700;
     color: #111;
     background-color: #ccc;

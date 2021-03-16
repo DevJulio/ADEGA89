@@ -25,7 +25,7 @@ db.collection("Loja")
     querySnapshot.forEach(function (doc) {
       console.log(doc.id, " => ", doc.data());
       localStorage.setItem("imgUrl", doc.data().imagemPerfil);
-      localStorage.setItem("typeOf", "Drinks");
+      localStorage.setItem("typeOf", "Food");
       formData.innerHTML = `
 
         <main id="content">
@@ -73,7 +73,7 @@ db.collection("Loja")
                 <img class="imgProps" style="width: 15em; margin-top: 3em; margin-bottom: 3em;" src="${
                   doc.data().imagemPerfil
                 }" alt="">
-                <button class="button" onclick="UpdateDrink()" style="cursor: pointer;">Atualizar imagem</button>
+                <button class="button" onclick="editarImg()" style="cursor: pointer;">Atualizar imagem</button>
 
                 </div>
 

@@ -66,51 +66,7 @@ db.collection("Loja")
     console.log("Error getting documents: ", error);
   });
 
-function add(param, id) {
-  let found = obj.find((element) => element.id == id);
-  if (param) {
-    found.count++;
-    document.getElementById(id).value = found.count;
-    document.getElementById("price" + id).value = (
-      found.price * found.count
-    ).toFixed(2);
-  } else {
-    if (found.count > 1) {
-      found.count--;
-      document.getElementById(id).value = found.count;
-      document.getElementById("price" + id).value = (
-        document.getElementById("price" + id).value - Number(found.price)
-      ).toFixed(2);
-    }
-  }
-}
 
-function addCart(id) {
-  let found = obj.find((element) => element.id == id);
-
-  if (user != null) {
-
-    db.collection("Usuarios").doc(user).collection("Carrinho").add({
-      id: found.id,
-      count: found.count,
-      name: found.name,
-      price: found.price,
-      reference: ''
-
-    })
-      .then(function (docRef) {
-        window.alert("adicionado ao carrinho!");
-      })
-      .catch(function (error) {
-        window.alert('Erro ao adicionar o jogo, consulte o suporte', error)
-
-      });
-
-  } else {
-    window.alert("Para realizar essa operação você precisa estar logado!")
-  }
-
-}
 function redirect(param) {
   window.location.href = param
 }

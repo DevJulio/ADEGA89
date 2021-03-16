@@ -56,8 +56,8 @@ function Logar() {
     firebase.auth().signInWithEmailAndPassword(Email, Senha).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        window.alert(errorMessage)
-        console.log();
+        errorMessage == "The password is invalid or the user does not have a password." ? errorMessage = "Senha incorreta, tente novamente" : ""
+        // window.alert(errorMessage)
         flag = false
 
     }).then(function () {
